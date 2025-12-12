@@ -19,7 +19,7 @@ const Promociones = () => {
   const [promociones, setPromociones] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_URL = "http://localhost:3000/api/promociones";
+  const API_URL = "https://backend-promociones.vercel.app/api/promociones";
 
   useEffect(() => {
     const fetchPromociones = async () => {

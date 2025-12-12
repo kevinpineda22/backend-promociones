@@ -5,22 +5,11 @@
       "src": "server.js",
       "use": "@vercel/node",
       "config": {
-        "maxRequestBodySize": "50mb",
-        "maxDuration": 60
+        "maxRequestBodySize": "50mb"
       }
     }
   ],
   "routes": [
-    {
-      "src": "/api/reservas/(.*)",
-      "methods": ["OPTIONS"],
-      "dest": "/server.js"
-    },
-    {
-      "src": "/api/reservas/(.*)",
-      "methods": ["GET", "POST", "PUT", "PATCH", "DELETE"],
-      "dest": "/server.js"
-    },
     {
       "src": "/(.*)",
       "dest": "/server.js"

@@ -4,26 +4,26 @@
   margin: 0 auto;
 }
 
-.upload-section {
+.admin-promociones-upload-section {
   background: #f5f5f5;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 30px;
 }
 
-.upload-form {
+.admin-promociones-upload-form {
   display: flex;
   gap: 10px;
   align-items: center;
 }
 
-.promociones-grid {
+.admin-promociones-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
 }
 
-.promo-card {
+.admin-promociones-card {
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
@@ -32,7 +32,7 @@
   flex-direction: column;
 }
 
-.promo-card img {
+.admin-promociones-card img {
   width: 100%;
   height: auto;
   display: block;
@@ -40,7 +40,7 @@
   object-fit: cover;
 }
 
-.delete-btn {
+.admin-promociones-delete-btn {
   width: 100%;
   padding: 10px;
   background: #ff4444;
@@ -51,6 +51,6 @@
   font-weight: bold;
 }
 
-.delete-btn:hover {
+.admin-promociones-delete-btn:hover {
   background: #cc0000;
 }

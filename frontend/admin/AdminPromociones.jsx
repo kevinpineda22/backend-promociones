@@ -8,7 +8,7 @@ const AdminPromociones = () => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   // Ajusta esta URL si tu backend corre en otro puerto o dominio
-  const API_URL = "http://localhost:3000/api/promociones";
+  const API_URL = "https://backend-promociones.vercel.app/api/promociones";
 
   useEffect(() => {
     fetchPromociones();
@@ -82,9 +82,9 @@ const AdminPromociones = () => {
     <div className="admin-promociones-container">
       <h2>Administrar Promociones</h2>
 
-      <div className="upload-section">
+      <div className="admin-promociones-upload-section">
         <h3>Subir Nueva Promoción</h3>
-        <form onSubmit={handleUpload} className="upload-form">
+        <form onSubmit={handleUpload} className="admin-promociones-upload-form">
           <input
             id="fileInput"
             type="file"
@@ -98,17 +98,17 @@ const AdminPromociones = () => {
         </form>
       </div>
 
-      <div className="promociones-grid">
+      <div className="admin-promociones-grid">
         {loading ? (
           <p>Cargando...</p>
         ) : promociones.length === 0 ? (
           <p>No hay promociones activas.</p>
         ) : (
           promociones.map((promo) => (
-            <div key={promo.id} className="promo-card">
+            <div key={promo.id} className="admin-promociones-card">
               <img src={promo.image_url} alt="Promoción" />
               <button
-                className="delete-btn"
+                className="admin-promociones-delete-btn"
                 onClick={() => handleDelete(promo.id)}
               >
                 Eliminar
