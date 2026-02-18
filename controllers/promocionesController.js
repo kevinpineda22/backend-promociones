@@ -47,10 +47,14 @@ export const createPromocion = async (req, res, next) => {
     const publicUrl = publicUrlData.publicUrl;
 
     // Guardar en base de datos con fechas - Colombia usa UTC-5
+    // Si no hay fecha, usar formato local compatible en lugar de UTC puro
+    const defaultStartDate =
+      startDate || new Date().toLocaleString("sv-SE").replace(" ", "T");
+
     const newPromocion = await PromocionesModel.create(
       publicUrl,
       bgColor || "transparent",
-      startDate || new Date().toISOString(),
+      defaultStartDate,
       endDate || null,
     );
 

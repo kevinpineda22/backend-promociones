@@ -196,12 +196,10 @@ const AdminPromociones = () => {
           data: { publicUrl },
         } = supabase.storage.from("promociones-bucket").getPublicUrl(filePath);
 
-        // Convertir datetime-local a ISO string (el navegador convierte automáticamente a UTC)
-        const startDateISO = startDate
-          ? new Date(startDate).toISOString()
-          : null;
+        // Enviar con offset de Colombia (-05:00) para mantener la hora exacta
+        const startDateISO = startDate ? `${startDate}:00-05:00` : null;
         const endDateISO =
-          endDate && endDate !== "" ? new Date(endDate).toISOString() : null;
+          endDate && endDate !== "" ? `${endDate}:00-05:00` : null;
 
         return supabase.from("promociones").insert([
           {
@@ -724,7 +722,9 @@ const AdminPromociones = () => {
                                       {
                                         timeZone: "America/Bogota",
                                         dateStyle: "short",
-                                        timeStyle: "short",
+                                        hour12: true,
+                                        hour: "2-digit",
+                                        minute: "2-digit",
                                       },
                                     )}
                                   </span>
@@ -737,7 +737,9 @@ const AdminPromociones = () => {
                                       {
                                         timeZone: "America/Bogota",
                                         dateStyle: "short",
-                                        timeStyle: "short",
+                                        hour12: true,
+                                        hour: "2-digit",
+                                        minute: "2-digit",
                                       },
                                     )}
                                   </span>
@@ -816,7 +818,9 @@ const AdminPromociones = () => {
                                 {
                                   timeZone: "America/Bogota",
                                   dateStyle: "short",
-                                  timeStyle: "short",
+                                  hour12: true,
+                                  hour: "2-digit",
+                                  minute: "2-digit",
                                 },
                               )}
                             </small>
@@ -829,7 +833,9 @@ const AdminPromociones = () => {
                                 {
                                   timeZone: "America/Bogota",
                                   dateStyle: "short",
-                                  timeStyle: "short",
+                                  hour12: true,
+                                  hour: "2-digit",
+                                  minute: "2-digit",
                                 },
                               )}
                             </small>
