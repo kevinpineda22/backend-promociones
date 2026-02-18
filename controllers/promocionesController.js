@@ -13,6 +13,7 @@ export const getPromociones = async (req, res, next) => {
 
 export const createPromocion = async (req, res, next) => {
   try {
+    const { bgColor, startDate, endDate } = req.body; // Capturamos fechas
     if (!req.file) {
       return res
         .status(400)
@@ -45,8 +46,13 @@ export const createPromocion = async (req, res, next) => {
 
     const publicUrl = publicUrlData.publicUrl;
 
-    // Guardar en base de datos
-    const newPromocion = await PromocionesModel.create(publicUrl);
+    // Guardar en base de datos con fechas - Colombia usa UTC-5
+    const newPromocion = await PromocionesModel.create(
+      publicUrl,
+      bgColor || "transparent",
+      startDate || new Date().toISOString(),
+      endDate || null,
+    );
 
     res.status(201).json(newPromocion);
   } catch (error) {

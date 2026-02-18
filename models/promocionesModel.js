@@ -10,10 +10,18 @@ export const PromocionesModel = {
     return data;
   },
 
-  create: async (imageUrl) => {
+  create: async (imageUrl, bgColor, startDate, endDate) => {
     const { data, error } = await supabase
       .from("promociones")
-      .insert([{ image_url: imageUrl }])
+      .insert([
+        {
+          image_url: imageUrl,
+          bg_color: bgColor,
+          start_date: startDate,
+          end_date: endDate,
+          active: true,
+        },
+      ])
       .select();
     if (error) throw error;
     return data[0];

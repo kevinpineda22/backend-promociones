@@ -9,10 +9,8 @@
 :root {
   --promo-color-primary: #210d65;
   --promo-color-light: #f5f7fa;
-  --promo-font-body: 'Poppins', sans-serif;
+  --promo-font-body: "Poppins", sans-serif;
 }
-
-
 
 .promo-page {
   display: flex;
@@ -82,8 +80,8 @@
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 300px;
-  height: 420px;
+  width: auto;
+  height: 500px;
   border-radius: 18px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -98,7 +96,7 @@
 
 .swiper-slide img {
   display: block;
-  width: 100%;
+  width: auto;
   height: 100%;
   object-fit: contain; /* Muestra la imagen completa sin recortar */
   transition: transform 0.5s ease;
@@ -225,10 +223,20 @@
 
 /* --- 6. Diseño 100% Responsivo --- */
 @media (max-width: 375px) {
-  .promo-header { padding: 30px 15px; }
-  .promo-main-content { padding: 20px 0; }
-  .my-swiper { padding-top: 20px; padding-bottom: 20px; }
-  .swiper-slide { width: 240px; height: 336px; }
+  .promo-header {
+    padding: 30px 15px;
+  }
+  .promo-main-content {
+    padding: 20px 0;
+  }
+  .my-swiper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .swiper-slide {
+    width: auto;
+    height: 336px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -237,16 +245,16 @@
     display: none;
   }
   .swiper-slide {
-    width: 75vw;
-    height: 105vw;
-    max-width: 300px;
-    max-height: 420px;
+    width: auto;
+    height: 60vh;
+    max-width: 90vw;
+    max-height: 80vh;
   }
 }
 
 @media (min-width: 769px) {
   .swiper-slide {
-    width: 320px;
-    height: 448px;
+    width: auto;
+    height: 500px;
   }
 }
