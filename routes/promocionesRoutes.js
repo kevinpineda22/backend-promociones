@@ -4,6 +4,7 @@ import {
   getPromociones,
   createPromocion,
   deletePromocion,
+  updatePromocion,
 } from "../controllers/promocionesController.js";
 
 const router = express.Router();
@@ -14,6 +15,7 @@ const upload = multer({ storage: storage });
 
 router.get("/", getPromociones);
 router.post("/", upload.single("image"), createPromocion);
+router.put("/:id", updatePromocion); // Actualizar fechas, color, estado
 router.delete("/:id", deletePromocion);
 
 export default router;
